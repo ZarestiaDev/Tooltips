@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="spell_header" merge="join">
+		<sheetdata>
+			<string_spell name="name">
+				<script file="campaign/scripts/tooltip.lua" />
+			</string_spell>
+		</sheetdata>
+	</windowclass>
+</root>

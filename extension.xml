@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root version="3.3" >
+	<properties>
+		<name>Feature: Tooltips</name>
+		<version>0.1</version>
+		<loadorder>50</loadorder>
+		<description>
+			<text>Tooltips</text>
+			<author>Zarestia</author>
+		</description>
+		<ruleset>
+			<name>2E</name>
+		</ruleset>
+		<ruleset>
+			<name>3.5E</name>
+		</ruleset>
+		<ruleset>
+			<name>PFRPG</name>
+		</ruleset>
+		<ruleset>
+			<name>4E</name>
+		</ruleset>
+		<ruleset>
+			<name>5E</name>
+		</ruleset>
+		<ruleset>
+			<name>SFRPG</name>
+		</ruleset>
+		<ruleset>
+			<name>PFRPG2</name>
+		</ruleset>
+	</properties>
+
+	<announcement text="Tooltips - v0.1 \nby Zarestia" font="emotefont" />
+
+	<base>
+		<!-- Campaign -->
+		<includefile ruleset="2E|5E" source="campaign/record_power.xml" />
+		<includefile ruleset="4E" source="campaign/record_power4e.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_entry.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_mini.xml" />
+
+		<!-- High Level Scripts -->
+		<script name="DataTooltip" file="scripts/data_tooltip.lua" />
+		<script name="TooltipManager" file="scripts/manager_tooltip.lua" />
+	</base>
+</root>
