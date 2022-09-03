@@ -1,8 +1,57 @@
--- ORDER table represent the wanted database node names in the correct order
+-- Tables represent the wanted database node names in the correct order
+-- Because of ruleset heterogeneity we have to define the label names here
 
-ORDER = {
+powers = {
+	["2E"] = {
+		node = {
+			"name",
+			"type",
+			"level",
+			"school",
+			"sphere",
+			"castingtime",
+			"range",
+			"aoe",
+			"components",
+			"duration",
+			"save",
+			"description"
+		};
+		name = {
+			"Name",
+			"Type",
+			"Level",
+			"School",
+			"Sphere",
+			"Casting Time",
+			"Range",
+			"AoE",
+			"Components",
+			"Duration",
+			"Save",
+			"Description"
+		}
+	};
+	["4E"] = {
+		node = {
+			"name",
+			"recharge",
+			"keywords",
+			"action",
+			"range",
+			"description",
+		};
+		name = {
+			"Name",
+			"Recharge",
+			"Reywords",
+			"Action",
+			"Range",
+			"Description",
+		};
+	};
 	["5E"] = {
-		powers = {
+		node = {
 			"name",
 			"level",
 			"school",
@@ -13,9 +62,23 @@ ORDER = {
 			"duration",
 			"description"
 		};
+		name = {
+			"Name",
+			"Level",
+			"School",
+			"Ritual",
+			"Casting Time",
+			"Range",
+			"Components",
+			"Duration",
+			"Description"
+		};
 	};
+};
+
+spells = {
 	["3.5E"] = {
-		spells = {
+		node = {
 			"name",
 			"school",
 			"level",
@@ -28,9 +91,22 @@ ORDER = {
 			"sr",
 			"description"
 		};
+		name = {
+			"Name",
+			"School",
+			"Level",
+			"Components",
+			"Casting Time",
+			"Range",
+			"Effect/Target",
+			"Duration",
+			"Saving Throw",
+			"Spell Resist.",
+			"Description"
+		};
 	};
 	["SFRPG"] = {
-		spells = {
+		node = {
 			"name",
 			"source",
 			"school",
@@ -47,9 +123,26 @@ ORDER = {
 			"sr",
 			"description"
 		};
+		name = {
+			"Name",
+			"Class",
+			"School",
+			"Level",
+			"Requires RP",
+			"Descriptors",
+			"Casting Time",
+			"Range",
+			"Area",
+			"Effect/Target",
+			"Target",
+			"Duration",
+			"Saving Throw",
+			"SR",
+			"Description"
+		};
 	};
 	["PFRPG2"] = {
-		spells = {
+		node = {
 			"name",
 			"spelltype",
 			"level",
@@ -60,6 +153,7 @@ ORDER = {
 			"trigger",
 			"requirements",
 			"range",
+			"cost",
 			"area",
 			"targets",
 			"savingthrow",
@@ -71,21 +165,28 @@ ORDER = {
 			"critfailure",
 			"heightened"
 		};
-	};
-	["2E"] = {
-		powers = {
-			"name",
-			"type",
-			"level",
-			"school",
-			"sphere",
-			"castingtime",
-			"range",
-			"aoe",
-			"components",
-			"duration",
-			"save",
-			"description"
+		name = {
+			"Name",
+			"Type",
+			"Level",
+			"Superscripts",
+			"Traits",
+			"Traditions",
+			"Casting",
+			"Trigger",
+			"Requirements",
+			"Cost",
+			"Range",
+			"Area",
+			"Targets",
+			"Saving Throw",
+			"Duration",
+			"Description",
+			"Critical Success",
+			"Success",
+			"Failure",
+			"Critical Failure",
+			"Heightened"
 		};
 	};
 };
