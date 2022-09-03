@@ -25,23 +25,34 @@ function GetTooltipData(node, tNodeOrder, sTooltipText)
 	for index,sNodeName in ipairs(tNodeOrder.node) do
 		local sLabel = tNodeOrder.name[index];
 		local sNode = DB.getValue(node, sNodeName, "");
-		
-		sTooltipText = sTooltipText .. sLabel .. ": " .. sNode .. "\n";
+
+		if sNode ~= "" then
+			sTooltipText = sTooltipText .. sLabel .. ": " .. sNode .. "\n";
+		end
 	end
 	
 	return sTooltipText;
 end
 
 function CleanupTooltipData(sTooltipText)
-	-- Cleanup formatting in description
-	sTooltipText = sTooltipText:gsub("</?b>", "");
-	sTooltipText = sTooltipText:gsub("</?i>", "");
-	sTooltipText = sTooltipText:gsub("</?u>", "");
-	sTooltipText = sTooltipText:gsub("<p>", "");
-	
-	-- Add linebreaks and delete ending ones
+	-- Add linebreaks
 	sTooltipText = sTooltipText:gsub("</p>", "\n");
+	sTooltipText = sTooltipText:gsub("Description", "\n%1");
+
+	-- Delete all formatting tags
+	sTooltipText = sTooltipText:gsub("%b<>", "");
+	
+	-- Delete ending linebreaks
 	sTooltipText = sTooltipText:gsub("\n*$", "");
+
+	-- Specific cleanup for rulesets
+	if RULESET == "5E" then
+		sTooltipText = sTooltipText:gsub("Ritual: 0", "Ritual: No");
+		sTooltipText = sTooltipText:gsub("Ritual: 1", "Ritual: Yes");
+	elseif RULESET == "SFRPG" then
+		sTooltipText = sTooltipText:gsub("Requires RP: 0", "Requires RP: No");
+		sTooltipText = sTooltipText:gsub("Requires RP: 1", "Requires RP: Yes");
+	end
 	
 	return sTooltipText;
 end
