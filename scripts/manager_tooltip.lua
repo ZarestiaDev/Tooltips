@@ -31,7 +31,7 @@ function GetTooltipData(node, tNodeOrder, sTooltipText)
 	for _,sNodeData in ipairs(tNodeOrder) do
 		local sNode = DB.getValue(node, sNodeData[1], "");
 
-		if sNode ~= "" then
+		if not (sNode == "" or sNode == 0 or sNode == "<p />") then
 			local sLabel = sNodeData[2];
 
 			if sLabel == "" then
@@ -47,7 +47,9 @@ end
 
 function CleanupTooltipData(sTooltipText)
 	-- Add linebreaks
+	sTooltipText = sTooltipText:gsub("<p>", "\n");
 	sTooltipText = sTooltipText:gsub("</p>", "\n");
+	sTooltipText = sTooltipText:gsub("</link>", "\n");
 	sTooltipText = sTooltipText:gsub("Description", "\n%1");
 
 	-- Delete all formatting tags
@@ -58,12 +60,23 @@ function CleanupTooltipData(sTooltipText)
 
 	-- Specific cleanup for rulesets
 	if RULESET == "5E" then
-		sTooltipText = sTooltipText:gsub("Ritual: 0", "Ritual: No");
 		sTooltipText = sTooltipText:gsub("Ritual: 1", "Ritual: Yes");
 	elseif RULESET == "SFRPG" then
-		sTooltipText = sTooltipText:gsub("Requires RP: 0", "Requires RP: No");
 		sTooltipText = sTooltipText:gsub("Requires RP: 1", "Requires RP: Yes");
 	end
+
+	-- Unicode Cleanup
+	sTooltipText = sTooltipText:gsub("&#196;", "Ä");
+	sTooltipText = sTooltipText:gsub("&#228;", "ä");
+	sTooltipText = sTooltipText:gsub("&#214;", "Ö");
+	sTooltipText = sTooltipText:gsub("&#246;", "ö");
+	sTooltipText = sTooltipText:gsub("&#220;", "Ü");
+	sTooltipText = sTooltipText:gsub("&#252;", "ü");
+	sTooltipText = sTooltipText:gsub("&#223;", "ß");
+	sTooltipText = sTooltipText:gsub("&#38;", "&");
+	sTooltipText = sTooltipText:gsub("&#34;", "„");
+	sTooltipText = sTooltipText:gsub("&#180", "´");
+	sTooltipText = sTooltipText:gsub("&#13", "\n");
 	
 	return sTooltipText;
 end
