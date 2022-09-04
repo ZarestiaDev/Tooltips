@@ -5,7 +5,8 @@ function onInit()
 
 	local node = window.getDatabaseNode();
 	local sNodeType = node.getParent().getName();
+	Debug.console(sNodeType);
 	
-	local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[sNodeType][TooltipManager.RULESET]);
+	local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[TooltipManager.RULESET][sNodeType]);
 	self.setTooltipText(sTooltipText);
 end

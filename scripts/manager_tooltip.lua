@@ -6,6 +6,12 @@ local function getRuleset()
 	if RULESET == "PFRPG" then
 		RULESET = "3.5E"
 	end
+
+	if RULESET:match("^%d") then
+		RULESET = "DND" .. RULESET;
+	end
+
+	RULESET = RULESET:gsub("%.", "");
 end
 
 function onInit()
@@ -22,11 +28,16 @@ function CreateTooltipText(node, tNodeOrder)
 end
 
 function GetTooltipData(node, tNodeOrder, sTooltipText)
-	for index,sNodeName in ipairs(tNodeOrder.node) do
-		local sLabel = tNodeOrder.name[index];
-		local sNode = DB.getValue(node, sNodeName, "");
+	for _,sNodeData in ipairs(tNodeOrder) do
+		local sNode = DB.getValue(node, sNodeData[1], "");
 
 		if sNode ~= "" then
+			local sLabel = sNodeData[2];
+
+			if sLabel == "" then
+				sLabel = StringManager.capitalize(sNodeData[1]);
+			end
+			
 			sTooltipText = sTooltipText .. sLabel .. ": " .. sNode .. "\n";
 		end
 	end

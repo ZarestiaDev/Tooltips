@@ -1,192 +1,114 @@
--- Tables represent the wanted database node names in the correct order
--- Because of ruleset heterogeneity we have to define the label names here
+-- Tables represent the wanted database node names in the correct order.
+-- Because of ruleset heterogeneity we have to define the label names here.
+-- Structue: NodeType -> Ruleset -> Order { DatabaseNodeName, Label }.
+-- If label is equivalent to the DatabaseNodeName, we set the value here to "".
+-- If the label is different, we set the value here to the one we want.
 
-powers = {
-	["2E"] = {
-		node = {
-			"name",
-			"type",
-			"level",
-			"school",
-			"sphere",
-			"castingtime",
-			"range",
-			"aoe",
-			"components",
-			"duration",
-			"save",
-			"description"
-		};
-		name = {
-			"Name",
-			"Type",
-			"Level",
-			"School",
-			"Sphere",
-			"Casting Time",
-			"Range",
-			"AoE",
-			"Components",
-			"Duration",
-			"Save",
-			"Description"
-		}
-	};
-	["4E"] = {
-		node = {
-			"name",
-			"recharge",
-			"keywords",
-			"action",
-			"range",
-			"description",
-		};
-		name = {
-			"Name",
-			"Recharge",
-			"Reywords",
-			"Action",
-			"Range",
-			"Description",
-		};
-	};
-	["5E"] = {
-		node = {
-			"name",
-			"level",
-			"school",
-			"ritual",
-			"castingtime",
-			"range",
-			"components",
-			"duration",
-			"description"
-		};
-		name = {
-			"Name",
-			"Level",
-			"School",
-			"Ritual",
-			"Casting Time",
-			"Range",
-			"Components",
-			"Duration",
-			"Description"
-		};
+-- Powers & Spells
+
+DND2E = {
+	powers = {
+		{ "name", "" },
+		{ "type", "" },
+		{ "level", "" },
+		{ "school", "" },
+		{ "sphere", "" },
+		{ "castingtime", "Casting Time" },
+		{ "range", "" },
+		{ "aoe", "AoE" },
+		{ "components", "" },
+		{ "duration", "" },
+		{ "save", "" },
+		{ "description", "" }
 	};
 };
 
-spells = {
-	["3.5E"] = {
-		node = {
-			"name",
-			"school",
-			"level",
-			"components",
-			"castingtime",
-			"range",
-			"effect",
-			"duration",
-			"save",
-			"sr",
-			"description"
-		};
-		name = {
-			"Name",
-			"School",
-			"Level",
-			"Components",
-			"Casting Time",
-			"Range",
-			"Effect/Target",
-			"Duration",
-			"Saving Throw",
-			"Spell Resist.",
-			"Description"
-		};
-	};
-	["SFRPG"] = {
-		node = {
-			"name",
-			"source",
-			"school",
-			"level",
-			"requiresrp",
-			"descriptors",
-			"castingtime",
-			"range",
-			"area",
-			"effect",
-			"targets",
-			"duration",
-			"savingthrow",
-			"sr",
-			"description"
-		};
-		name = {
-			"Name",
-			"Class",
-			"School",
-			"Level",
-			"Requires RP",
-			"Descriptors",
-			"Casting Time",
-			"Range",
-			"Area",
-			"Effect/Target",
-			"Target",
-			"Duration",
-			"Saving Throw",
-			"SR",
-			"Description"
-		};
-	};
-	["PFRPG2"] = {
-		node = {
-			"name",
-			"spelltype",
-			"level",
-			"superscripts",
-			"traits",
-			"traditions",
-			"casting",
-			"trigger",
-			"requirements",
-			"range",
-			"cost",
-			"area",
-			"targets",
-			"savingthrow",
-			"duration",
-			"effects",
-			"critsuccess",
-			"success",
-			"failure",
-			"critfailure",
-			"heightened"
-		};
-		name = {
-			"Name",
-			"Type",
-			"Level",
-			"Superscripts",
-			"Traits",
-			"Traditions",
-			"Casting",
-			"Trigger",
-			"Requirements",
-			"Cost",
-			"Range",
-			"Area",
-			"Targets",
-			"Saving Throw",
-			"Duration",
-			"Description",
-			"Critical Success",
-			"Success",
-			"Failure",
-			"Critical Failure",
-			"Heightened"
-		};
+DND35E = {
+	spells = {
+		{ "name", "" },
+		{ "school", "" },
+		{ "level", "" },
+		{ "components", "" },
+		{ "castingtime", "Casting Time" },
+		{ "range", "" },
+		{ "effect", "Effect/Target" },
+		{ "duration", "" },
+		{ "save", "Saving Throw" },
+		{ "sr", "Spell Resist." },
+		{ "description", "" }
 	};
 };
+
+DND4E = {
+	powers = {
+		{ "name", "" },
+		{ "recharge", "" },
+		{ "keywords", "" },
+		{ "action", "" },
+		{ "range", "" },
+		{ "description", "" }
+	};
+};
+
+DND5E = {
+	powers = {
+		{ "name", "" },
+		{ "level", "" },
+		{ "school", "" },
+		{ "ritual", "" },
+		{ "castingtime", "Casting Time" },
+		{ "range", "" },
+		{ "components", "" },
+		{ "duration", "" },
+		{ "description", "" }
+	};
+};
+
+SFRPG = {
+	spells = {
+		{ "name", "" },
+		{ "source", "Class" },
+		{ "school", "" },
+		{ "level", "" },
+		{ "requiresrp", "Requires RP" },
+		{ "descriptors", "" },
+		{ "castingtime", "Casting Time" },
+		{ "range", "" },
+		{ "area", "" },
+		{ "effect", "Effect/Target" },
+		{ "targets", "Target" },
+		{ "duration", "" },
+		{ "savingthrow", "Saving Throw" },
+		{ "sr", "SR" },
+		{ "description", "" },
+	};
+};
+
+PFRPG2 = {
+	spells = {
+		{ "name", "" },
+		{ "spelltype", "Type" },
+		{ "level", "" },
+		{ "superscripts", "" },
+		{ "traits", "" },
+		{ "traditions", "" },
+		{ "casting", "" },
+		{ "trigger", "" },
+		{ "requirements", "" },
+		{ "cost", "" },
+		{ "range", "" },
+		{ "area", "" },
+		{ "targets", "" },
+		{ "savingthrow", "Saving Throw" },
+		{ "duration", "" },
+		{ "effects", "Description" },
+		{ "critsuccess", "Critical Success" },
+		{ "success", "" },
+		{ "failure", "" },
+		{ "critfailure", "Critical Failure" },
+		{ "heightened", "" }
+	};
+};
+
+-- Traits
+-- 5e featlist, featurelist, traitlist (name, description)
