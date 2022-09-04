@@ -20,10 +20,10 @@ end
 
 function CreateTooltipText(node, tNodeOrder)
 	local sTooltipText = "";
-	
+
 	sTooltipText = GetTooltipData(node, tNodeOrder, sTooltipText);
 	sTooltipText = CleanupTooltipData(sTooltipText);
-	
+
 	return sTooltipText;
 end
 
@@ -37,11 +37,11 @@ function GetTooltipData(node, tNodeOrder, sTooltipText)
 			if sLabel == "" then
 				sLabel = StringManager.capitalize(sNodeData[1]);
 			end
-			
+		
 			sTooltipText = sTooltipText .. sLabel .. ": " .. sNode .. "\n";
 		end
 	end
-	
+
 	return sTooltipText;
 end
 
@@ -52,9 +52,13 @@ function CleanupTooltipData(sTooltipText)
 	sTooltipText = sTooltipText:gsub("</link>", "\n");
 	sTooltipText = sTooltipText:gsub("Description", "\n%1");
 
+	-- Prepare deletion of duplicate headings
+	sTooltipText = sTooltipText:gsub("<h>", "<");
+	sTooltipText = sTooltipText:gsub("</h>", ">");
+
 	-- Delete all formatting tags
 	sTooltipText = sTooltipText:gsub("%b<>", "");
-	
+
 	-- Delete ending linebreaks
 	sTooltipText = sTooltipText:gsub("\n*$", "");
 
@@ -77,6 +81,6 @@ function CleanupTooltipData(sTooltipText)
 	sTooltipText = sTooltipText:gsub("&#34;", "„");
 	sTooltipText = sTooltipText:gsub("&#180", "´");
 	sTooltipText = sTooltipText:gsub("&#13", "\n");
-	
+
 	return sTooltipText;
 end

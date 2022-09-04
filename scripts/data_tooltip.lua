@@ -37,6 +37,23 @@ DND35E = {
 		{ "sr", "Spell Resist." },
 		{ "description", "" }
 	};
+	featlist = {
+		{ "name", "" },
+		{ "type", "" },
+		{ "prerequisites", "" },
+		{ "summary", "" },
+		{ "benefit", "" },
+		{ "normal", "" },
+		{ "special", "" }
+	};
+	specialabilitylist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
+	traitlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
 };
 
 DND4E = {
