@@ -73,6 +73,14 @@ DND4E = {
 		{ "range", "" },
 		{ "description", "" }
 	};
+	featlist = {
+		{ "value", "Name" },
+		{ "description", "" }
+	};
+	specialabilitylist = {
+		{ "value", "Name" },
+		{ "description", "" }
+	};
 };
 
 DND5E = {

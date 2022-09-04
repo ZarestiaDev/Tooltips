@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+    <windowclass name="char_ability" merge="join">
+        <sheetdata>
+            <string_textlistitem name="value">
+                <script file="campaign/scripts/tooltip.lua" />
+            </string_textlistitem>
+        </sheetdata>
+    </windowclass>
+</root>

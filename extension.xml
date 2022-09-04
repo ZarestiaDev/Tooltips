@@ -46,6 +46,7 @@
 		<!-- Abilities / Traits / Features -->
 		<includefile ruleset="2E|5E" source="campaign/record_char_abilities.xml" />
 		<includefile ruleset="3.5E|PFRPG" source="campaign/record_char_abilities35e.xml" />
+		<includefile ruleset="4E" source="campaign/record_char_abilities4e.xml" />
 
 		<!-- High Level Scripts -->
 		<script name="DataTooltip" file="scripts/data_tooltip.lua" />
