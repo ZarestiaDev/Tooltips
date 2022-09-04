@@ -38,11 +38,14 @@
 		<!-- Global tooltip settings -->
 		<includefile source="gameelements.xml" />
 
-		<!-- Campaign -->
+		<!-- Spells / Powers -->
 		<includefile ruleset="2E|5E" source="campaign/record_power.xml" />
 		<includefile ruleset="4E" source="campaign/record_power4e.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_entry.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_mini.xml" />
+		<!-- Abilities / Traits / Features -->
+		<includefile ruleset="5E" source="campaign/record_char_abilities5e.xml" />
+		<includefile ruleset="3.5E|PFRPG" source="campaign/record_char_abilities35e.xml" />
 
 		<!-- High Level Scripts -->
 		<script name="DataTooltip" file="scripts/data_tooltip.lua" />

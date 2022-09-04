@@ -62,6 +62,18 @@ DND5E = {
 		{ "duration", "" },
 		{ "description", "" }
 	};
+	featlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
+	featurelist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
+	traitlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
 };
 
 SFRPG = {
@@ -109,6 +121,3 @@ PFRPG2 = {
 		{ "heightened", "" }
 	};
 };
-
--- Traits
--- 5e featlist, featurelist, traitlist (name, description)
