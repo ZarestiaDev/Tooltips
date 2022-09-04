@@ -189,4 +189,26 @@ PFRPG2 = {
 		{ "critfailure", "Critical Failure" },
 		{ "heightened", "" }
 	};
+	featlist = {
+		{ "name", "" },
+		{ "level", "" },
+		{ "traits", "" },
+		{ "prerequisites", "" },
+		{ "access", "" },
+		{ "archetype", "" },
+		{ "frequency", "" },
+		{ "trigger", "" },
+		{ "requirements", "" },
+		{ "shortbenefits", "Short Benefits" },
+		{ "effectsbenefits", "Description" },
+		{ "special", "" }
+	};
+	specialabilitylist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
+	traitlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
 };

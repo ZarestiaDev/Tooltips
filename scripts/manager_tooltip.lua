@@ -81,6 +81,7 @@ function CleanupTooltipData(sTooltipText)
 	sTooltipText = sTooltipText:gsub("&#34;", "„");
 	sTooltipText = sTooltipText:gsub("&#180", "´");
 	sTooltipText = sTooltipText:gsub("&#13", "\n");
+	sTooltipText = sTooltipText:gsub("&#141", "");
 
 	return sTooltipText;
 end
