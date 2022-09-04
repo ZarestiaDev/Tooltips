@@ -21,6 +21,14 @@ DND2E = {
 		{ "save", "" },
 		{ "description", "" }
 	};
+	featurelist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
+	traitlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
 };
 
 DND35E = {

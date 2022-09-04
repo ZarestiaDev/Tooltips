@@ -7,6 +7,6 @@ function onInit()
 	local sNodeType = node.getParent().getName();
 	Debug.console(sNodeType);
 	
-	local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[TooltipManager.RULESET][sNodeType]);
-	self.setTooltipText(sTooltipText);
+	--local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[TooltipManager.RULESET][sNodeType]);
+	--self.setTooltipText(sTooltipText);
 end
