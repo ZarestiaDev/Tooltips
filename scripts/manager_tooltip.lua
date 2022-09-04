@@ -31,7 +31,7 @@ function GetTooltipData(node, tNodeOrder, sTooltipText)
 	for _,sNodeData in ipairs(tNodeOrder) do
 		local sNode = DB.getValue(node, sNodeData[1], "");
 
-		if not (sNode == "" or sNode == 0 or sNode == "<p />") then
+		if not (sNode == "" or sNode == "<p />") then
 			local sLabel = sNodeData[2];
 
 			if sLabel == "" then
@@ -65,8 +65,10 @@ function CleanupTooltipData(sTooltipText)
 	-- Specific cleanup for rulesets
 	if RULESET == "5E" then
 		sTooltipText = sTooltipText:gsub("Ritual: 1", "Ritual: Yes");
+		sTooltipText = sTooltipText:gsub("Ritual: 0", "Ritual: No");
 	elseif RULESET == "SFRPG" then
 		sTooltipText = sTooltipText:gsub("Requires RP: 1", "Requires RP: Yes");
+		sTooltipText = sTooltipText:gsub("Requires RP: 0", "Requires RP: No");
 	end
 
 	-- Unicode Cleanup
