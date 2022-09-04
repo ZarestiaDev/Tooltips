@@ -127,6 +127,42 @@ SFRPG = {
 		{ "sr", "SR" },
 		{ "description", "" },
 	};
+	specialabilitylist = {
+		{ "name", "" },
+		{ "source", "Source Book" },
+		{ "class", "" },
+		{ "feature", "" },
+		{ "level", "" },
+		{ "text", "Description" }
+	};
+	featlist = {
+		{ "name", "" },
+		{ "type", "" },
+		{ "summary", "" },
+		{ "prequisite", "Prerequisites" },
+		{ "benefit", "" },
+		{ "normal", "" },
+		{ "special", "" }
+	};
+	themeabilitylist = {
+		{ "name", "" },
+		{ "level", "" },
+		{ "text", "Description" }
+	};
+	proficiencylist = {
+		{ "name", "" },
+		{ "type", "" },
+		{ "summary", "" },
+		{ "prequisite", "Prerequisites" },
+		{ "weaponsubtype", "Weaopn Sub Type" },
+		{ "benefit", "" },
+		{ "normal", "" },
+		{ "special", "" }
+	};
+	traitlist = {
+		{ "name", "" },
+		{ "text", "Description" }
+	};
 };
 
 PFRPG2 = {
