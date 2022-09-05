@@ -1,6 +1,6 @@
 -- Tables represent the wanted database node names in the correct order.
 -- Because of ruleset heterogeneity we have to define the label names here.
--- Structue: NodeType -> Ruleset -> Order { DatabaseNodeName, Label }.
+-- Structue: Ruleset -> NodeType -> Order { "DatabaseNodeName", "Label" }.
 -- If label is equivalent to the DatabaseNodeName, we set the value here to "".
 -- If the label is different, we set the value here to the one we want.
 

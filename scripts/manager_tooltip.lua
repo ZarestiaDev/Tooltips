@@ -1,6 +1,10 @@
 RULESET = "";
 
-local function getRuleset()
+function onInit()
+	GetRuleset();
+end
+
+function GetRuleset()
 	RULESET = User.getRulesetName();
 
 	if RULESET == "PFRPG" then
@@ -12,10 +16,6 @@ local function getRuleset()
 	end
 
 	RULESET = RULESET:gsub("%.", "");
-end
-
-function onInit()
-	getRuleset();
 end
 
 function CreateTooltipText(node, tNodeOrder)

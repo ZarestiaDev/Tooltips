@@ -2,7 +2,7 @@
 
 <root>
 	<tooltip>
-		<frame name="tooltipbox" margins="7,4,10,7" wrapwidth="400" />
+		<frame name="tooltipbox" margins="7,4,10,7" wrapwidth="450" />
 		<radial name="mini_name" margins="7,2,7,2" />
 		<font name="mini_name" />
 	</tooltip>

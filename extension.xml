@@ -3,7 +3,7 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Tooltips</name>
-		<version>0.1</version>
+		<version>1.0</version>
 		<loadorder>50</loadorder>
 		<description>
 			<text>Tooltips</text>
@@ -32,7 +32,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="Tooltips - v0.1 \nby Zarestia" font="emotefont" />
+	<announcement text="Tooltips - v1.0 \nby Zarestia" font="emotefont" />
 
 	<base>
 		<!-- Global tooltip settings -->

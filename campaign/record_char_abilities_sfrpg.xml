@@ -3,19 +3,19 @@
 <!-- The rest is equivalent with 3.5e and ergo in record_char_abilities_35e.xml -->
 
 <root>
-    <windowclass name="char_ability_theme" merge="join">
-        <sheetdata>
-            <string_textlistitem name="name">
-                <script file="campaign/scripts/tooltip.lua" />
-            </string_textlistitem>
-        </sheetdata>
-    </windowclass>
-
-    <windowclass name="char_ability_proficiency" merge="join">
-        <sheetdata>
-            <string_textlistitem name="name">
-                <script file="campaign/scripts/tooltip.lua" />
-            </string_textlistitem>
-        </sheetdata>
-    </windowclass>
+	<windowclass name="char_ability_theme" merge="join">
+		<sheetdata>
+			<string_textlistitem name="name">
+				<script file="campaign/scripts/tooltip.lua" />
+			</string_textlistitem>
+		</sheetdata>
+	</windowclass>
+	
+	<windowclass name="char_ability_proficiency" merge="join">
+		<sheetdata>
+			<string_textlistitem name="name">
+				<script file="campaign/scripts/tooltip.lua" />
+			</string_textlistitem>
+		</sheetdata>
+	</windowclass>
 </root>
