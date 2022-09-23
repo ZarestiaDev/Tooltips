@@ -18,31 +18,25 @@ function onClose()
 	DB.addHandler(DB.getPath(window.getDatabaseNode()), "onChildUpdate", stateChanged);
 end
 
-function updateTooltip(bShortcut)
+function updateTooltip(shortcut, bShortcut)
 	local node = window.getDatabaseNode();
 	local sNodeType = node.getParent().getName();
+	Debug.console(node, sNodeType)
 	
 	local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[TooltipManager.RULESET][sNodeType]);
 
 	if bShortcut then
 		self.setTooltipText("");
-		if window.shortcut then
-			window.shortcut.setTooltipText(sTooltipText);
-		elseif window.parentcontrol.window.shortcut then
-			window.parentcontrol.window.shortcut.setTooltipText(sTooltipText);
-		end
+		shortcut.setTooltipText(sTooltipText);
 	else
 		self.setTooltipText(sTooltipText);
-		if window.shortcut then
-			window.shortcut.setTooltipText("");
-		elseif window.parentcontrol.window.shortcut then
-			window.parentcontrol.window.shortcut.setTooltipText("");
-		end
+		shortcut.setTooltipText("");
 	end
 end
 
 function stateChanged()
 	local bShortcut;
+	local shortcut;
 
 	if OptionsManager.isOption("TSOS", "on") then
 		bShortcut = true;
@@ -50,5 +44,11 @@ function stateChanged()
 		bShortcut = false;
 	end
 
-	updateTooltip(bShortcut);
+	if window.shortcut then
+		shortcut = window.shortcut;
+	elseif window.parentcontrol.window.shortcut then
+		shortcut = window.parentcontrol.window.shortcut;
+	end
+
+	updateTooltip(shortcut, bShortcut);
 end

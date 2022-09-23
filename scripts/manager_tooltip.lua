@@ -28,6 +28,10 @@ function CreateTooltipText(node, tNodeOrder)
 end
 
 function GetTooltipData(node, tNodeOrder, sTooltipText)
+	if not tNodeOrder then
+		return "";
+	end
+
 	for _,sNodeData in ipairs(tNodeOrder) do
 		local sNode = DB.getValue(node, sNodeData[1], "");
 
@@ -81,9 +85,10 @@ function CleanupTooltipData(sTooltipText)
 	sTooltipText = sTooltipText:gsub("&#223;", "ß");
 	sTooltipText = sTooltipText:gsub("&#38;", "&");
 	sTooltipText = sTooltipText:gsub("&#34;", "„");
-	sTooltipText = sTooltipText:gsub("&#180", "´");
-	sTooltipText = sTooltipText:gsub("&#13", "\n");
-	sTooltipText = sTooltipText:gsub("&#141", "");
+	sTooltipText = sTooltipText:gsub("&#180;", "´");
+	sTooltipText = sTooltipText:gsub("&#13;", "\n");
+	sTooltipText = sTooltipText:gsub("&#141;", "");
+	sTooltipText = sTooltipText:gsub("&#8217;", "'");
 
 	return sTooltipText;
 end

@@ -69,7 +69,7 @@ DND4E = {
 		{ "keywords", "" },
 		{ "action", "" },
 		{ "range", "" },
-		{ "description", "" }
+		{ "shortdescription", "Description" }
 	};
 	featlist = {
 		{ "value", "Name" },
