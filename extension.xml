@@ -3,7 +3,7 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Tooltips</name>
-		<version>1.0</version>
+		<version>1.1</version>
 		<loadorder>50</loadorder>
 		<description>
 			<text>Tooltips</text>
@@ -32,9 +32,14 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="Tooltips - v1.0 \nby Zarestia" font="emotefont" />
+	<announcement text="https://forge.fantasygrounds.com/shop/items/829/view \nTooltips - v1.1 by Zarestia" font="emotefont" />
 
 	<base>
+		<!-- High Level Scripts -->
+		<script name="DataTooltip" file="scripts/data_tooltip.lua" />
+		<script name="TooltipManager" file="scripts/manager_tooltip.lua" />
+		<script name="OptionsT" file="scripts/manager_options_t.lua" />
+		
 		<!-- Global tooltip settings -->
 		<includefile source="gameelements.xml" />
 
@@ -43,14 +48,14 @@
 		<includefile ruleset="4E" source="campaign/record_power_4e.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_entry.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_spell_mini.xml" />
+
 		<!-- Abilities / Traits / Features -->
 		<includefile ruleset="2E|5E" source="campaign/record_char_abilities_5e.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_char_abilities.xml" />
 		<includefile ruleset="4E" source="campaign/record_char_abilities_4e.xml" />
 		<includefile ruleset="SFRPG" source="campaign/record_char_abilities_sfrpg.xml" />
 
-		<!-- High Level Scripts -->
-		<script name="DataTooltip" file="scripts/data_tooltip.lua" />
-		<script name="TooltipManager" file="scripts/manager_tooltip.lua" />
+		<!-- Strings -->
+		<includefile source="strings/strings_t.xml" />
 	</base>
 </root>

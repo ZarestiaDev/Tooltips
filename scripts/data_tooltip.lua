@@ -4,8 +4,6 @@
 -- If label is equivalent to the DatabaseNodeTypeName, we set the value here to "".
 -- If the label is different, we set the value here to the one we want.
 
--- Powers & Spells
-
 DND2E = {
 	powers = {
 		{ "name", "" },
