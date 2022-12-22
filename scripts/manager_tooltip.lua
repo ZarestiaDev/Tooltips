@@ -50,21 +50,7 @@ function GetTooltipData(node, tNodeOrder, sTooltipText)
 end
 
 function CleanupTooltipData(sTooltipText)
-	-- Add linebreaks
-	sTooltipText = sTooltipText:gsub("<p>", "\n");
-	sTooltipText = sTooltipText:gsub("</p>", "\n");
-	sTooltipText = sTooltipText:gsub("</link>", "\n");
-	sTooltipText = sTooltipText:gsub("Description", "\n%1");
-
-	-- Prepare deletion of duplicate headings
-	sTooltipText = sTooltipText:gsub("<h>", "<");
-	sTooltipText = sTooltipText:gsub("</h>", ">");
-
-	-- Delete all formatting tags
-	sTooltipText = sTooltipText:gsub("%b<>", "");
-
-	-- Delete ending linebreaks
-	sTooltipText = sTooltipText:gsub("\n*$", "");
+	sTooltipText = generalCleanupText(sTooltipText);
 
 	-- Specific cleanup for rulesets
 	if RULESET == "5E" then
@@ -75,6 +61,26 @@ function CleanupTooltipData(sTooltipText)
 		sTooltipText = sTooltipText:gsub("Requires RP: 0", "Requires RP: No");
 	end
 
+	return sTooltipText;
+end
+
+function generalCleanupText(sTooltipText)
+	-- Add linebreaks
+	sTooltipText = sTooltipText:gsub("<p>", "\n");
+	sTooltipText = sTooltipText:gsub("</p>", "\n");
+	sTooltipText = sTooltipText:gsub("</link>", "\n");
+	sTooltipText = sTooltipText:gsub("Description", "\n%1");
+	
+	-- Prepare deletion of duplicate headings
+	sTooltipText = sTooltipText:gsub("<h>", "<");
+	sTooltipText = sTooltipText:gsub("</h>", ">");
+	
+	-- Delete all formatting tags
+	sTooltipText = sTooltipText:gsub("%b<>", "");
+	
+	-- Delete ending linebreaks
+	sTooltipText = sTooltipText:gsub("\n*$", "");
+	
 	-- Unicode Cleanup
 	sTooltipText = sTooltipText:gsub("&#196;", "Ä");
 	sTooltipText = sTooltipText:gsub("&#228;", "ä");
@@ -89,6 +95,7 @@ function CleanupTooltipData(sTooltipText)
 	sTooltipText = sTooltipText:gsub("&#13;", "\n");
 	sTooltipText = sTooltipText:gsub("&#141;", "");
 	sTooltipText = sTooltipText:gsub("&#8217;", "'");
+	sTooltipText = sTooltipText:gsub("&#160;", " ");
 
 	return sTooltipText;
 end
