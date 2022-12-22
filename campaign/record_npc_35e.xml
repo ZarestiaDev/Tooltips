@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+    <windowclass name="npc_combat_creature" merge="join">
+		<sheetdata>
+			<string_columnh name="feats">
+                <script file="campaign/scripts/feat_tooltip.lua" />
+            </string_columnh>
+		</sheetdata>
+	</windowclass>
+</root>
