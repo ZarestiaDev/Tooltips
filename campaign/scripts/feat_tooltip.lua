@@ -1,9 +1,7 @@
 local aFeats = {};
+local bParsed = false;
 
-function onInit()
-    parseFeats();
-
-end
+local nodeClick = nil;
 
 function getLoadedModules()
 	local tLoadedModules = {};
@@ -19,6 +17,10 @@ function getLoadedModules()
 	return tLoadedModules;
 end
 
+function onChar(nKeyCode)
+	bParsed = false;
+end
+
 function parseFeats()
     aFeats = {};
 
@@ -27,13 +29,12 @@ function parseFeats()
     for i = 1, #aClauses do
         local sName = aClauses[i];
 		-- Cleanup potential brackets
-		sName = sName:gsub("%s?%b()", "");
-		local sDesc = parseDesc(sName);
-		if sDesc then
-			sDesc = TooltipManager.generalCleanupText(sDesc);
-		end
-        table.insert(aFeats, {nStart = aClauseStats[i].startpos, nEnd = aClauseStats[i].endpos, sName = sName, sDesc = sDesc })
+		sName = sName:gsub("%s?%s?%b()", "");
+		local sDesc, nodeFeat = parseDesc(sName);
+        table.insert(aFeats, {nStart = aClauseStats[i].startpos, nEnd = aClauseStats[i].endpos, sName = sName, sDesc = sDesc, node = nodeFeat })
     end
+
+	bParsed = true;
 end
 
 function parseDesc(sFeat)
@@ -56,7 +57,7 @@ function parseDesc(sFeat)
 				local sBenefit = DB.getValue(nodeFeat, "benefit", "");
 				local sSpecial = DB.getValue(nodeFeat, "special", "");
 
-				return joinFeatDesc(sSummary, sBenefit, sSpecial);
+				return joinFeatDesc(sSummary, sBenefit, sSpecial), nodeFeat;
 			end
 		end
 	end
@@ -75,6 +76,8 @@ function joinFeatDesc(sSummary, sBenefit, sSpecial)
 		sFeatDesc = sFeatDesc .. "\nSpecial" .. sSpecial;
 	end
 
+	sFeatDesc = TooltipManager.generalCleanupText(sFeatDesc);
+
 	return sFeatDesc;
 end
 
@@ -83,11 +86,15 @@ function onHover(oncontrol)
 	if not oncontrol then
 		-- Clear any selections
 		setSelectionPosition(0);
+		nodeClick = nil;
 	end
 end
 
 function onHoverUpdate(x, y)
-	-- Compute the locations of the relevant phrases, and the mouse
+	if not bParsed then
+		parseFeats();
+	end
+
 	local nMouseIndex = getIndexAt(x, y);
 	
 	for i = 1, #aFeats, 1 do
@@ -95,15 +102,36 @@ function onHoverUpdate(x, y)
 		  setCursorPosition(aFeats[i].nStart);
 		  setSelectionPosition(aFeats[i].nEnd);
 
+		  nodeClick = aFeats[i].node;
 		  setHoverCursor("hand");
 		  
 		  setTooltipText(aFeats[i].sDesc);
 		  
 		  return;
 		end
-	end	
+	end
 	
 	-- Reset the cursor and tooltip
+	nodeClick = nil;
 	setHoverCursor("arrow");
 	setTooltipText("");
+end
+
+function onDoubleClick(x, y)
+	if nodeClick then
+		Interface.openWindow("referencefeat", nodeClick)
+	end
+
+	return true;
+end
+
+-- On mouse click, set focus, set cursor position and clear selection
+function onClickRelease(button, x, y)
+	setFocus();
+	
+	local n = getIndexAt(x, y);
+	setSelectionPosition(n);
+	setCursorPosition(n);
+	
+	return true;
 end
