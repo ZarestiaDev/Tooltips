@@ -38,8 +38,18 @@ function parseFeats()
 end
 
 function parseDesc(sFeat)
+	-- first search if records are available inside the campaign itself
+	local tFeats = DB.findNode("feat").getChildren();
+
+	for _,nodeFeat in pairs(tFeats) do
+		if sFeat == DB.getValue(nodeFeat, "name", "") then
+			return joinFeatDesc(nodeFeat), nodeFeat;
+		end
+	end
+
+	-- otherwise search in loaded modules
 	local tModules = getLoadedModules();
-	
+
 	for _,sModule in pairs(tModules) do
 		local nodeFeatModule = DB.findNode("reference.feats" .. "@" .. sModule);
 		if not nodeFeatModule then
@@ -53,30 +63,37 @@ function parseDesc(sFeat)
 			end
 			
 			if sModuleFeat == sFeat then
-				local sSummary = DB.getValue(nodeFeat, "summary", "");
-				local sBenefit = DB.getValue(nodeFeat, "benefit", "");
-				local sSpecial = DB.getValue(nodeFeat, "special", "");
-
-				return joinFeatDesc(sSummary, sBenefit, sSpecial), nodeFeat;
+				return joinFeatDesc(nodeFeat), nodeFeat;
 			end
 		end
 	end
 end
 
-function joinFeatDesc(sSummary, sBenefit, sSpecial)
+function joinFeatDesc(nodeFeat)
+	local sSummary = DB.getValue(nodeFeat, "summary", "");
+	local sBenefit = DB.getValue(nodeFeat, "benefit", "");
+	local sNormal = DB.getValue(nodeFeat, "normal", "");
+	local sSpecial = DB.getValue(nodeFeat, "special", "");
+
 	local sFeatDesc = "";
 
-	if sSummary ~= "" then
+	if not (sSummary == "" or sSummary == "<p />") then
 		sFeatDesc = sFeatDesc .. "Summary\n" .. sSummary;
 	end
-	if sBenefit ~= "" then
+	if not (sBenefit == "" or sBenefit == "<p />") then
 		sFeatDesc = sFeatDesc .. "\n\nBenefit" .. sBenefit;
 	end
-	if sSpecial ~= "" then
+	if not (sNormal == "" or sNormal == "<p />") then
+		sFeatDesc = sFeatDesc .. "\n\nNormal" .. sNormal;
+	end
+	if not (sSpecial == "" or sSpecial == "<p />") then
 		sFeatDesc = sFeatDesc .. "\nSpecial" .. sSpecial;
 	end
 
 	sFeatDesc = TooltipManager.generalCleanupText(sFeatDesc);
+	-- Special cleanup
+	sFeatDesc = sFeatDesc:gsub("Summary\n\n", "Summary\n");
+	sFeatDesc = sFeatDesc:gsub("\n\n\n", "\n\n");
 
 	return sFeatDesc;
 end
@@ -119,7 +136,11 @@ end
 
 function onDoubleClick(x, y)
 	if nodeClick then
-		Interface.openWindow("referencefeat", nodeClick)
+		local sWindow = "referencefeat";
+		if TooltipManager.RULESET == "SFRPG" then
+			sWindow = "feat";
+		end
+		Interface.openWindow(sWindow, nodeClick);
 	end
 
 	return true;

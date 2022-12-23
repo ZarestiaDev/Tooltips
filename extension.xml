@@ -56,7 +56,7 @@
 		<includefile ruleset="SFRPG" source="campaign/record_char_abilities_sfrpg.xml" />
 
 		<!-- Feats -->
-		<includefile ruleset="3.5E|PFRPG" source="campaign/record_npc_35e.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG" source="campaign/record_npc_35e.xml" />
 
 		<!-- Strings -->
 		<includefile source="strings/strings_t.xml" />
