@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <root>
-	<windowclass name="power_item_header" merge="join">
+	<windowclass name="power_item_header_5E" merge="join">
 		<sheetdata>
-			<string_power name="name">
+			<string_poweritem_header_name name="name">
 				<script file="campaign/scripts/tooltip.lua" />
-			</string_power>
+			</string_poweritem_header_name>
 		</sheetdata>
 	</windowclass>
 </root>
