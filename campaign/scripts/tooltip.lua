@@ -20,7 +20,8 @@ end
 
 function updateTooltip(shortcut, bShortcut)
 	local node = window.getDatabaseNode();
-	local sNodeType = node.getParent().getName();
+	--local sNodeType = node.getParent().getName();
+	local sNodeType = DB.getName(DB.getParent(node));
 	
 	local sTooltipText = TooltipManager.CreateTooltipText(node, DataTooltip[TooltipManager.RULESET][sNodeType]);
 

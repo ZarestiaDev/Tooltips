@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <root>
+    <string name="option_header_tooltip">Tooltips</string>
     <string name="option_label_TSOS">Tooltips: Show on shortcut</string>
 </root>
