@@ -44,9 +44,7 @@
 		<includefile source="gameelements.xml" />
 
 		<!-- Spells / Powers -->
-		<includefile ruleset="5E" source="campaign/5e/record_power.xml" />
-		<includefile ruleset="4E" source="campaign/4e/record_power.xml" />
-		<includefile ruleset="3.5E|PFRPG|SFRPG" source="campaign/35e/record_spell_entry.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG|4E|5E" source="campaign/record_spell_entry.xml" />
 		<includefile ruleset="3.5E|PFRPG|SFRPG" source="campaign/35e/record_spell_mini.xml" />
 		<!-- Wait for 2E & PFRPG2 to implement FEB-2023 ruleset updates, so needed extra files for now -->
 		<includefile ruleset="2E" source="campaign/2e/record_power.xml" />
