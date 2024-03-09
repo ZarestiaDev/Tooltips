@@ -3,9 +3,9 @@
 <root>
 	<windowclass name="spell_header" merge="join">
 		<sheetdata>
-			<string_spell name="name">
+			<string_poweritem_header_name name="name">
 				<script file="campaign/scripts/tooltip.lua" />
-			</string_spell>
+			</string_poweritem_header_name>
 		</sheetdata>
 	</windowclass>
 </root>
