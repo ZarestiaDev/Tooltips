@@ -45,7 +45,8 @@
 
 		<!-- Spells / Powers -->
 		<includefile ruleset="2E|3.5E|4E|5E|PFRPG|SFRPG" source="campaign/record_power.xml" />
-		<includefile ruleset="PFRPG2" source="campaign/record_power_pfrpg2.xml" />
+		<includefile ruleset="PFRPG2" source="campaign/pfrpg2/record_power_pfrpg2.xml" />
+		<includefile ruleset="PFRPG2" source="campaign/35e/record_power_mini.xml" />
 
 		<!-- Abilities / Traits / Features -->
 		<includefile ruleset="2E|5E" source="campaign/5e/record_char_abilities.xml" />
