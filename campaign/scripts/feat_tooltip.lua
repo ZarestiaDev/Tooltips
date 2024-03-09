@@ -39,9 +39,9 @@ end
 
 function parseDesc(sFeat)
 	-- first search if records are available inside the campaign itself
-	local tFeats = DB.findNode("feat").getChildren();
+	local tFeats = DB.getChildList(DB.findNode("feat"));
 
-	for _,nodeFeat in pairs(tFeats) do
+	for _,nodeFeat in ipairs(tFeats) do
 		if sFeat == DB.getValue(nodeFeat, "name", "") then
 			return joinFeatDesc(nodeFeat), nodeFeat;
 		end
@@ -50,13 +50,13 @@ function parseDesc(sFeat)
 	-- otherwise search in loaded modules
 	local tModules = getLoadedModules();
 
-	for _,sModule in pairs(tModules) do
+	for _,sModule in ipairs(tModules) do
 		local nodeFeatModule = DB.findNode("reference.feats" .. "@" .. sModule);
 		if not nodeFeatModule then
 			return;
 		end
 		
-		for _,nodeFeat in pairs(nodeFeatModule.getChildren()) do
+		for _,nodeFeat in ipairs(DB.getChildList(nodeFeatModule)) do
 			local sModuleFeat = DB.getValue(nodeFeat, "name", "");
 			if sModuleFeat == "" then
 				return;

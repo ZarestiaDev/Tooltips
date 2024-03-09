@@ -3,7 +3,7 @@
 <root version="3.3" >
 	<properties>
 		<name>Feature: Tooltips</name>
-		<version>1.4</version>
+		<version>1.5</version>
 		<loadorder>50</loadorder>
 		<description>
 			<text>Tooltips</text>
@@ -32,7 +32,7 @@
 		</ruleset>
 	</properties>
 
-	<announcement text="https://forge.fantasygrounds.com/shop/items/829/view \nTooltips - v1.4 by Zarestia" font="emotefont" />
+	<announcement text="https://forge.fantasygrounds.com/shop/items/829/view \nTooltips - v1.5 by Zarestia" font="emotefont" />
 
 	<base>
 		<!-- High Level Scripts -->
@@ -48,13 +48,14 @@
 		<includefile ruleset="PFRPG2" source="campaign/record_power_pfrpg2.xml" />
 
 		<!-- Abilities / Traits / Features -->
-		<includefile ruleset="2E|5E" source="campaign/record_char_abilities_5e.xml" />
-		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/record_char_abilities.xml" />
-		<includefile ruleset="4E" source="campaign/record_char_abilities_4e.xml" />
-		<includefile ruleset="SFRPG" source="campaign/record_char_abilities_sfrpg.xml" />
+		<includefile ruleset="2E|5E" source="campaign/5e/record_char_abilities.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG|PFRPG2" source="campaign/35e/record_char_abilities.xml" />
+		<includefile ruleset="4E" source="campaign/4e/record_char_abilities.xml" />
+		<!-- Extra entries for SFRPG -->
+		<includefile ruleset="SFRPG" source="campaign/sfrpg/record_char_abilities.xml" />
 
 		<!-- Feats -->
-		<includefile ruleset="3.5E|PFRPG|SFRPG" source="campaign/record_npc_35e.xml" />
+		<includefile ruleset="3.5E|PFRPG|SFRPG" source="campaign/35e/record_npc.xml" />
 
 		<!-- Strings -->
 		<includefile source="strings/strings_t.xml" />
